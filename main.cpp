@@ -45,8 +45,6 @@ int main(){
             maxComp = compliance;
         }
         lastInput = inputLine;
-        // Each requirement is a string up to 80 characters long
-        // terminated by the end of line
     }
     
     for (int i = 0; i < result.size(); i++){
