@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
 #include <string>
 #include <sstream>
@@ -19,7 +18,7 @@ int main(){
     float compliance;
     float maxComp;
     float minPrice;
-    //fstream file("input.txt");
+    // fstream file("input.txt");
 
     while(getline(cin, inputLine)){
         // line containing two integers: 0 < n <= 1000
@@ -57,6 +56,5 @@ int main(){
         }  
         lastInput = inputLine;
     }
-    
     return EXIT_SUCCESS;
 }
