@@ -25,25 +25,19 @@ int main(){
         // line containing two integers: 0 < n <= 1000
         // n = the number of requirements
         // p = number of proposals
-        bool strHasPeriod = find_if(inputLine.begin(), inputLine.end(), 
-                            [](unsigned char c) { return (c=='.'); }) != inputLine.end();
-        if(inputLine.size() <= 9){
-            string::iterator strIter = find_if(inputLine.begin(), inputLine.end(), 
-                            [](unsigned char c) { return (c==' '); });
-            int index = distance(inputLine.begin(), strIter+1);
-            if( !(strHasPeriod) && isdigit(inputLine.c_str()[0]) && isdigit(inputLine.substr(index).c_str()[0])){
-                stringstream ss(inputLine);
-                ss >> n >> p;
-                if (n==0 && p == 0){ // The line 0 0 indicates there are no more RFPs
-                    break;
-                }
-                numRFP++;
-                result.push_back(make_pair(numRFP,""));
-                maxComp = 0;
-                minPrice = numeric_limits<float>::max();
-                ss.clear();
-                continue;
+        bool strHasPeriod = find(inputLine.begin(), inputLine.end(),'.') != inputLine.end();
+        if( !(strHasPeriod) && isdigit(inputLine.c_str()[0])){
+            stringstream ss(inputLine);
+            ss >> n >> p;
+            if (n==0 && p == 0){ // The line 0 0 indicates there are no more RFPs
+                break;
             }
+            numRFP++;
+            result.push_back(make_pair(numRFP,""));
+            maxComp = 0;
+            minPrice = numeric_limits<float>::max();
+            ss.clear();
+            continue;
         }
         if(strHasPeriod){
             d = stof(inputLine, &sz);
